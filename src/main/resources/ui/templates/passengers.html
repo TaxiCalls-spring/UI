@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="header :: copy"></head>
+
+    <body>
+        <h1>Passengers</h1>
+        <div th:if="not ${passengers}" class="error">
+            No passengers found.
+            <div style="height: 2cm">&nbsp;</div>
+        </div>
+
+        <div th:if="${passengers}">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>E-mail</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="passenger : ${passengers}">
+                        <td><a href="passenger.html"
+                               th:href="@{|/passengers/${passenger.id}|}"
+                               th:text="|${passenger.id}|">11111111</a></td>
+                        <td th:text="${passenger.email}">Owner</td>
+                        <td th:text="${passenger.password}">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:replace="footer :: copy"></div>
+    </body>
+</html>
