@@ -17,7 +17,12 @@ public class Route implements Serializable {
     private Address addressFrom;
     private Address addressTo;
 
-    protected Route() {
+    public Route(Address addressFrom, Address addressTo) {
+        this.addressFrom = addressFrom;
+        this.addressTo = addressTo;
+    }
+
+    public Route() {
     }
 
     public Route(Integer id) {
@@ -34,6 +39,14 @@ public class Route implements Serializable {
 
     public Address getAddressTo() {
         return addressTo;
+    }
+
+    public void setAddressFrom(Address addressFrom) {
+        this.addressFrom = addressFrom;
+    }
+
+    public void setAddressTo(Address addressTo) {
+        this.addressTo = addressTo;
     }
 
 }

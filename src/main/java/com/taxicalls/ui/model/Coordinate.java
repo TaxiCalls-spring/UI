@@ -13,12 +13,31 @@ import java.io.Serializable;
  */
 public class Coordinate implements Serializable {
 
-    private final Long longitude;
-    private final Long latitude;
+    private long longitude;
+    private long latitude;
 
-    public Coordinate(Long longitude, Long latitude) {
+    public Coordinate() {
+    }
+
+    public Coordinate(long latitude, long longitude) {
         this.longitude = longitude;
         this.latitude = latitude;
+    }
+
+    public long getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(long latitude) {
+        this.latitude = latitude;
+    }
+
+    public long getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(long longitude) {
+        this.longitude = longitude;
     }
 
 }

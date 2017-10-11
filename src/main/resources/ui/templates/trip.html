@@ -1,0 +1,65 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="header :: copy"></head>
+
+    <body>
+        <h1>Trip</h1>
+
+        <form action="#" th:object="${searchCriteria}" method="POST" th:action="@{/availableRoutes}" class="form-horizontal">
+
+            <div class="form-group">
+                <label for="search" class="control-label col-xs-2">Owner
+                    Search</label>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" id="search"
+                           th:field="*{addressFrom}" placeholder="Text from owner name"
+                           style="width: 10em;" />
+                </div>
+                <div class="col-xs-8">Case-insensitive, supports part name
+                    matching</div>
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-xs-2">&nbsp;</div>
+                <div class="col-xs-2">&nbsp;</div>
+                <div class="col-xs-8">
+                    <span th:if="${#fields.hasErrors('addressFrom')}"
+                          style="color: red; font-size: smaller" th:errors="*{addressFrom}"></span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="search" class="control-label col-xs-2">Owner
+                    Search</label>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" id="search"
+                           th:field="*{addressTo}" placeholder="Text from owner name"
+                           style="width: 10em;" />
+                </div>
+                <div class="col-xs-8">Case-insensitive, supports part name
+                    matching</div>
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-xs-2">&nbsp;</div>
+                <div class="col-xs-2">&nbsp;</div>
+                <div class="col-xs-8">
+                    <span th:if="${#fields.hasErrors('addressTo')}"
+                          style="color: red; font-size: smaller" th:errors="*{addressTo}"></span>
+                </div>
+            </div>
+
+            <!--  Submit button -->
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <button type="submit" class="btn btn-primary">Find</button>
+                </div>
+            </div>
+        </form>
+
+        <div th:replace="footer :: copy"></div>
+    </body>
+</html>

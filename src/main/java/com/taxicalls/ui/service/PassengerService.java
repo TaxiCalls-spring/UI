@@ -1,6 +1,7 @@
 package com.taxicalls.ui.service;
 
 import com.taxicalls.ui.model.Passenger;
+import com.taxicalls.ui.model.Route;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,10 +24,6 @@ public class PassengerService {
 
     protected Logger logger = Logger.getLogger(PassengerService.class.getName());
 
-//    public PassengerService(String serviceUrl) {
-//        this.serviceUrl = serviceUrl.startsWith("http") ? serviceUrl : "http://" + serviceUrl;
-//    }
-
     /**
      * The RestTemplate works because it uses a custom request-factory that uses
      * Ribbon to look-up the service to use. This method simply exists to show
@@ -43,10 +40,20 @@ public class PassengerService {
         logger.log(Level.INFO, "getPassenger() invoked: for {0}", id);
         return restTemplate.getForObject(serviceUrl + "/passengers/{id}", Passenger.class, id);
     }
-    
+
     public List<Passenger> getPassengers() {
         logger.log(Level.INFO, "getPassengers() invoked");
         return restTemplate.getForObject(serviceUrl + "/passengers", List.class);
+    }
+
+    public List<Route> getAvailableRoutes(Route route) {
+        logger.log(Level.INFO, "getAvailableRoutes() invoked");
+        return restTemplate.postForObject(serviceUrl + "/trip", route, List.class);
+    }
+    
+    public void chooseDriver(Route route) {
+        logger.log(Level.INFO, "getAvailableRoutes() invoked", route);
+        restTemplate.postForObject(serviceUrl + "/chooseDriver", route, Route.class);
     }
 
 }

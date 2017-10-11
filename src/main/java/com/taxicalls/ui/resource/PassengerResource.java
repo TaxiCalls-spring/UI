@@ -1,7 +1,10 @@
 package com.taxicalls.ui.resource;
 
+import com.taxicalls.ui.model.Address;
+import com.taxicalls.ui.model.Coordinate;
 import com.taxicalls.ui.service.PassengerService;
 import com.taxicalls.ui.model.Passenger;
+import com.taxicalls.ui.model.Route;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +45,22 @@ public class PassengerResource {
         List<Passenger> passengers = passengerService.getPassengers();
         logger.log(Level.INFO, "getPassengers() found: {0}", passengers);
         model.addAttribute("passengers", passengers);
+        return "passengers";
+    }
+
+    @RequestMapping("/trip")
+    public String trup(Model model) {
+        model.addAttribute("searchCriteria", new SearchCriteria());
+        return "trip";
+    }
+
+    @RequestMapping("/availableRoutes")
+    public String getAvailableRoutes(Model model, SearchCriteria searchCriteria) {
+        Address adressFrom = new Address(new Coordinate(searchCriteria.getAddressFrom(), searchCriteria.getAddressFrom()));
+        Address addressTo = new Address(new Coordinate(searchCriteria.getAddressTo(), searchCriteria.getAddressTo()));
+        Route route = new Route(adressFrom, addressTo);
+        List<Route> routes = passengerService.getAvailableRoutes(route);
+        model.addAttribute("routes", routes);
         return "passengers";
     }
 

@@ -13,9 +13,20 @@ import java.io.Serializable;
  */
 public class Address implements Serializable {
 
-    private final Coordinate coordinate;
+    private Coordinate coordinate;
+
+    public Address() {
+    }
 
     public Address(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
 

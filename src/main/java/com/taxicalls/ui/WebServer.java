@@ -24,7 +24,6 @@ public class WebServer {
      * @param args Program arguments - ignored.
      */
     public static void main(String[] args) {
-        System.setProperty("spring.config.name", "ui");
         SpringApplication.run(WebServer.class, args);
     }
 
