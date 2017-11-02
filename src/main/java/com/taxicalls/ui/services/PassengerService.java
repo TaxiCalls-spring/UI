@@ -1,4 +1,4 @@
-package com.taxicalls.ui.service;
+package com.taxicalls.ui.services;
 
 import com.taxicalls.ui.model.Passenger;
 import com.taxicalls.ui.model.Route;
@@ -36,7 +36,7 @@ public class PassengerService {
         logger.log(Level.WARNING, "The RestTemplate request factory is {0}", restTemplate.getRequestFactory().getClass());
     }
 
-    public Passenger getPassenger(Integer id) {
+    public Passenger getPassenger(Long id) {
         logger.log(Level.INFO, "getPassenger() invoked: for {0}", id);
         return restTemplate.getForObject(serviceUrl + "/passengers/{id}", Passenger.class, id);
     }

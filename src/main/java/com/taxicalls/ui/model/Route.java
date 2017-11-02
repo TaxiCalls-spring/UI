@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class Route implements Serializable {
 
-    private Integer id;
+    private Long id;
     private Address addressFrom;
     private Address addressTo;
 
@@ -25,11 +25,11 @@ public class Route implements Serializable {
     public Route() {
     }
 
-    public Route(Integer id) {
+    public Route(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

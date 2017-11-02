@@ -1,7 +1,7 @@
 package com.taxicalls.ui.resource;
 
 import com.taxicalls.ui.model.Route;
-import com.taxicalls.ui.service.RoutesService;
+import com.taxicalls.ui.services.RoutesService;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +32,7 @@ public class RoutesResource {
     }
 
     @RequestMapping("/routes/{id}")
-    public String getRoute(Model model, @PathVariable("id") Integer id) {
+    public String getRoute(Model model, @PathVariable("id") Long id) {
         logger.log(Level.INFO, "getRoute() invoked: {0}", id);
         Route route = routesService.getRoute(id);
         logger.log(Level.INFO, "getRoute() found: {0}", route);

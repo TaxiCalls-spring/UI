@@ -13,18 +13,18 @@ import java.io.Serializable;
  */
 public class Passenger implements Serializable {
 
-    private Integer id;
+    private Long id;
     private String email;
     private String password;
 
     protected Passenger() {
     }
 
-    public Passenger(Integer id) {
+    public Passenger(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

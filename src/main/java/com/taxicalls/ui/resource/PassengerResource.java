@@ -2,7 +2,7 @@ package com.taxicalls.ui.resource;
 
 import com.taxicalls.ui.model.Address;
 import com.taxicalls.ui.model.Coordinate;
-import com.taxicalls.ui.service.PassengerService;
+import com.taxicalls.ui.services.PassengerService;
 import com.taxicalls.ui.model.Passenger;
 import com.taxicalls.ui.model.Route;
 import java.util.List;
@@ -31,7 +31,7 @@ public class PassengerResource {
     }
 
     @RequestMapping("/passengers/{id}")
-    public String getPassenger(Model model, @PathVariable("id") Integer id) {
+    public String getPassenger(Model model, @PathVariable("id") Long id) {
         logger.log(Level.INFO, "getPassenger() invoked: {0}", id);
         Passenger passenger = passengerService.getPassenger(id);
         logger.log(Level.INFO, "getPassenger() found: {0}", passenger);

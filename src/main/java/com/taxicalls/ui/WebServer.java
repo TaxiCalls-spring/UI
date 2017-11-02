@@ -1,10 +1,10 @@
 package com.taxicalls.ui;
 
-import com.taxicalls.ui.service.PassengerService;
+import com.taxicalls.ui.services.PassengerService;
 import com.taxicalls.ui.resource.PassengerResource;
 import com.taxicalls.ui.resource.HomeController;
 import com.taxicalls.ui.resource.RoutesResource;
-import com.taxicalls.ui.service.RoutesService;
+import com.taxicalls.ui.services.RoutesService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
